@@ -51,7 +51,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install zip
-        if: runner.os == "Windows"
+        if: runner.os == 'Windows'
         run: |
           choco install --no-progress -y zip
         
