@@ -50,6 +50,11 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Install zip
+        if: runner.os == "Windows"
+        run: |
+          choco install --no-progress -y zip
+        
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           zip --junk-paths my-artifact-${{runner.os}} README.md
